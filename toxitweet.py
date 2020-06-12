@@ -24,6 +24,7 @@ for user in screen_names:
 
 # Structure data in a pandas DataFrame for easier manipulation
 df = pd.DataFrame(dict_)
-df["text"].replace("(@\S*)|(https:.*)","",regex=True, inplace = True)
+df["text"].replace("(@\S*)|(https:.*)|([^a-zA-z0-9 #*&%$!\.,])","",regex=True, inplace = True)
+df["text"].replace("\A\s+|\s+\Z","",regex=True, inplace = True)
 df = df[df["text"] != ""]
 df.to_csv("C:/Users/micha/Documents/Python/AI/NLP/toxitweet/tweets.csv")
