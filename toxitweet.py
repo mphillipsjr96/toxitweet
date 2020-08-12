@@ -7,11 +7,11 @@ stopwords = list(stopwords.words("english"))
 with open("twitter_credentials.json", "r") as file:
     creds = json.load(file)
 
-badWords = pd.read_csv("C:/Users/micha/Documents/Python/AI/NLP/toxitweet/swearWords.csv").values
+badWords = pd.read_csv("/swearWords.csv").values
 
 # Instantiate an object
 python_tweets = Twython(creds['CONSUMER_KEY'], creds['CONSUMER_SECRET'])
-screen_names = ['MichaelPhiIIips', 'FuckMacki', 'fraaaaaaaaank', 'scottyphil', 'MMA_Roundhouse', 'HilvertJack', 'jason_bader', 'ColeSchultz24', 'mpucci10_', 'doonsausy', 'AdamSantiago16', 'davgrif', 'dwrobel328', 'nate_grahovac', 'mikesheps11', 'prodsamyool']
+screen_names = ["ACCOUNTS TO MONITOR"]
 dict_ = {'handle': [], 'date': [], 'text': []}
 # Create our query
 for user in screen_names:
@@ -42,4 +42,4 @@ for tweet in df["text"]:
     badCounter.append(badCount)
 
 df["Toxic"] = badCounter
-df.to_csv("C:/Users/micha/Documents/Python/AI/NLP/toxitweet/tweets.csv")
+df.to_csv("/tweets.csv")
