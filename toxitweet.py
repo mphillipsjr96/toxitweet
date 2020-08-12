@@ -8,7 +8,7 @@ with open("twitter_credentials.json", "r") as file:
 
 # Instantiate an object
 python_tweets = Twython(creds['CONSUMER_KEY'], creds['CONSUMER_SECRET'])
-screen_names = ['MichaelPhiIIips', 'FuckMacki', 'fraaaaaaaaank', 'scottyphil', 'MMA_Roundhouse']
+screen_names = ["ACCOUNTS TO MONITOR"]
 dict_ = {'handle': [], 'date': [], 'text': []}
 # Create our query
 for user in screen_names:
@@ -27,4 +27,4 @@ df = pd.DataFrame(dict_)
 df["text"].replace("(@\S*)|(https:.*)|([^a-zA-z0-9 #*&%$!\.,])","",regex=True, inplace = True)
 df["text"].replace("\A\s+|\s+\Z","",regex=True, inplace = True)
 df = df[df["text"] != ""]
-df.to_csv("C:/Users/micha/Documents/Python/AI/NLP/toxitweet/tweets.csv")
+df.to_csv("SAVE LOCATION OF tweets.csv")
